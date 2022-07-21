@@ -53,11 +53,11 @@ class Site(object):
                 reg = [g.upper() for g in group]
             else:
                 reg = [g.capitalize() if self.classify(g) != -1 else g for g in group]
-            print(reg)
+            # print(reg)
             for g, r in zip(group, reg):
                 self.r_entity = self.r_entity.replace(g, r)
 
-        print(f"{self.entity}\n{self.r_entity}")
+        # print(f"{self.entity}\n{self.r_entity}")
         return self.r_entity
 
 
