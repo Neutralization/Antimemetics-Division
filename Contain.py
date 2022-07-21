@@ -4,11 +4,16 @@
 import json
 import re
 from typing import Counter
+from unicodedata import combining, normalize
 
 
 class Site(object):
     def __init__(self, entity):
-        self.entity = entity
+        self.entity = re.sub(
+            chr(65039),  # U+FE0F
+            "",
+            "".join([c for c in normalize("NFC", entity) if combining(c) == 0]),
+        )
         self.r_entity = list(self.entity)
         self.FiftyFive = json.load(open("FiftyFive.json", "r", encoding="utf-8-sig"))
 
