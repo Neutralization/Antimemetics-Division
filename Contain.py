@@ -56,4 +56,5 @@ class Site(object):
         return self.r_entity
 
 
-Site(entity="“ᴰᵒ ʸᵒᵘ ᴸⁱᵏᵉ ᴿᵃⁱⁿ” “ᴵ ᴾʳᵉᶠᵉʳ ʸᵒᵘ”").neutralize()
+if __name__ == "__main__":
+    Site(entity="“ᴰᵒ ʸᵒᵘ ᴸⁱᵏᵉ ᴿᵃⁱⁿ” “ᴵ ᴾʳᵉᶠᵉʳ ʸᵒᵘ”").neutralize()
