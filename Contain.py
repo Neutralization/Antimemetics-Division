@@ -5,6 +5,7 @@ import json
 import re
 from typing import Counter
 from unicodedata import combining, normalize
+from functools import reduce
 
 
 class Site(object):
@@ -34,7 +35,7 @@ class Site(object):
             typ = 1
         return typ
 
-    def neutralize(self, pretty=True):
+    def neutralize(self, pretty=True, force=False):
         for n, t in enumerate(self.entity):
             for k, v in self.FiftyFive.items():
                 if t in v:
@@ -56,7 +57,17 @@ class Site(object):
             # print(reg)
             for g, r in zip(group, reg):
                 self.r_entity = self.r_entity.replace(g, r)
-
+        if force:
+            mnestics = reduce(
+                str.__add__,
+                [
+                    line.strip("\n")
+                    for line in open("Class-Z.txt", "r", encoding="utf-8-sig")
+                ],
+            )
+            self.r_entity = re.sub(
+                r"\s+", " ", re.sub(f"[{mnestics}]", " ", self.r_entity)
+            ).strip(" ")
         # print(f"{self.entity}\n{self.r_entity}")
         return self.r_entity
 
