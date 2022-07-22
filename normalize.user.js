@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         让我康康你的标题正不正常啊
+// @namespace    https://naizi.moe
 // @version      1.0.0
 // @description  一个反Unicode标题污染脚本，替换各种奇妙的英文字符，暴力模式下会移除标题中99.99%的emoji。
 // @author       Neutralized
-// @license      MIT
+// @license      GPL-3.0
 // @match        https://www.bilibili.com/video/*
 // @homepage     https://github.com/Neutralization/Antimemetics-Division
 // @icon         https://www.bilibili.com/favicon.ico
